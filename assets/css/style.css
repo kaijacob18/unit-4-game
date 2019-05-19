@@ -1,0 +1,13 @@
+img
+{
+    height: 75px;
+    width: 75px;
+}
+#h5.panel-title.text-center
+{
+    border-color: blueviolet;
+}
+#blockquote mb-0
+{
+    font-family: Josefin Sans, sans-serif;
+}
