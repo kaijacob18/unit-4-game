@@ -18,7 +18,7 @@ red:{
     name: "Red",
     value: 0
 },
-blue:{
+yellow:{
 
 
     name: "Yellow",
@@ -45,12 +45,19 @@ currentScore    = 0;
 
     // Set a new Target Score (between XX and XX)
 targetScore = randomNumber(19,120);
-    // Set different values for each of the crystals (between XX and XX)
+    // Set different values for each of the crystals (between 1 and 12)
 crystal.blue.value      = randomNumber(1,12);
 crystal.green.value     = randomNumber(1,12);
 crystal.red.value       = randomNumber(1,12);
 crystal.yellow.value    = randomNumber(1,12);
     // Change the HTML to reflect all of these changes
+$("#yourScore").html(currentScore);
+$("#targetScore").html(targetScore);
+
+console.log("------------------------------------")
+console.log("Target Score: " + targetScore);
+console.log("Blue: " = crystal.blue.value ," | Red: " + crystal.red.value , " | Green: " + crystal.green.value , " | Yellow: " + crystal.yellow.value);
+console.log("------------------------------------")
 }
 
 // Main
