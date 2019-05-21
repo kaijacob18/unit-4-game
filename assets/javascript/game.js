@@ -43,7 +43,7 @@ var startGame = function(){
     // Reset the Current Score
 currentScore    = 0;
 
-    // Set a new Target Score (between XX and XX)
+    // Set a new Target Score (between 19 and 120)
 targetScore = randomNumber(19,120);
     // Set different values for each of the crystals (between 1 and 12)
 crystal.blue.value      = randomNumber(1,12);
@@ -56,23 +56,56 @@ $("#targetScore").html(targetScore);
 
 console.log("------------------------------------")
 console.log("Target Score: " + targetScore);
-console.log("Blue: " = crystal.blue.value ," | Red: " + crystal.red.value , " | Green: " + crystal.green.value , " | Yellow: " + crystal.yellow.value);
+console.log("Blue: " + crystal.blue.value ," | Red: " + crystal.red.value , " | Green: " + crystal.green.value , " | Yellow: " + crystal.yellow.value);
 console.log("------------------------------------")
 }
 
+// Crystal clicks
+
+var crystalValues = function(crystal) {
+    currentScore = currentScore + crystal.value;
+
+    $("#yourScore").html(currentScore);
+
+    checkWin();
+
+    console.log("Your Score: " + currentScore);
+}
+var checkWin = function() {
+// IF currentScore is larger than tagetScore = Loss
+    if(currentScore > targetScore){
+        alert("You lost! Sorry buddy..");
+        lossCount++;
+        $("#lossCount").html(lossCount);
+
+        startGame();
+    
+    }
+    else if (currentScore == targetScore) {
+        alert("Congrats! You Won!");
+        winCount++;
+        $("#winCount").html(winCount);
+
+        startGame();
+    }
+}
+
+
 // Main
+startGame();
+
 $("#blueCrystal").click(function(){
-    alert("test");
+    crystalValues(crystal.blue);
 })
 $("#greenCrystal").click(function(){
 
-    alert("test");
+    crystalValues(crystal.green);
 })
 $("#redCrystal").click(function(){
 
-    
+    crystalValues(crystal.red);
 })
 $("#yellowCrystal").click(function(){
 
-    
+    crystalValues(crystal.yellow);
 })
